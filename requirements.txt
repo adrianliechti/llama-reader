@@ -1,5 +1,5 @@
 fastapi
 html2text
-markdownify
 playwright
+transformers[torch]
 uvicorn
