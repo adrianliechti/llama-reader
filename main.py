@@ -69,6 +69,14 @@ async def read(url, format="text"):
                 case "pdf":
                     content = await page.pdf()
                     return Response(content=content, media_type='application/pdf')
+                
+                case "screenshot":
+                    data = await page.screenshot()
+                    return Response(content=data, media_type='image/png')
+                
+                case "pageshot":
+                    data = await page.screenshot(full_page=True)
+                    return Response(content=data, media_type='image/png')
                  
                 case _:
                     raise HTTPException(status_code=400, detail="Invalid format")
